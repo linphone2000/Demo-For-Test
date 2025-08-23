@@ -1,0 +1,62 @@
+{
+  "common": {
+    "home": "Home",
+    "property": "Property",
+    "profile": "Profile",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "fullName": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signInRequired": "Sign In Required",
+    "signInRequiredSubtitle": "Please sign in to access your profile and settings",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "toggleToSignUp": "Sign Up",
+    "toggleToSignIn": "Sign In",
+    "authButtonText": "Sign In",
+    "authButtonTextSignUp": "Sign Up",
+    "signInSubtitle": "Welcome back",
+    "signUpSubtitle": "Create your account"
+  },
+  "home": {
+    "title": "Home Screen - Public Access",
+    "authStatus": "Authentication Status",
+    "signedIn": "Signed In",
+    "guest": "Guest"
+  },
+  "property": {
+    "title": "Property Screen - Public Access",
+    "addContent": "Add your property content here"
+  },
+  "profile": {
+    "userInfo": "User Information",
+    "settings": "Settings",
+    "themeToggle": "Theme: {{mode}}",
+    "themeToggleSubtitle": "Tap to toggle"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "signInForMore": "Sign in for more features",
+    "signInSubtitle": "Access your profile, save preferences, and unlock additional settings",
+    "goToLogin": "Go to Login"
+  }
+}
