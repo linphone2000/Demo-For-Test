@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { useThemeStore } from "@/stores/useThemeStore";
 import { useAuthStore } from "@/stores/useAuthStore";
-import { Appearance } from "react-native";
+import { Appearance, Platform } from "react-native";
 import SettingsModal from "@/components/Global/SettingsModal";
 import { useSettingsModalStore } from "@/stores/useSettingsModalStore";
 import { useTranslation } from "react-i18next";
@@ -77,7 +77,7 @@ export default function RootLayout() {
           name="(share)/sign-in"
           options={{
             headerShown: false,
-            presentation: "modal",
+            presentation: Platform.OS === "ios" ? "modal" : "formSheet",
           }}
         />
       </Stack>

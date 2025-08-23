@@ -2,10 +2,12 @@ import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useThemeStore } from "@/stores/useThemeStore";
 import { useTranslation } from "react-i18next";
+import { useInsetsTabBarStyle } from "@/utils/useInsetsHelpers";
 
 export default function TabLayout() {
   const { colors } = useThemeStore();
   const { t } = useTranslation();
+  const insetTabBarStyle = useInsetsTabBarStyle();
 
   return (
     <Tabs
@@ -16,6 +18,7 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: colors.card,
           borderTopColor: colors.border,
+          ...insetTabBarStyle
         },
       }}
     >

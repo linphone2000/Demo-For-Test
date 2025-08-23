@@ -1,11 +1,9 @@
 import { useThemeStore } from "@/stores/useThemeStore";
-import { useTopInsetPadding } from "@/utils/useInsetsHelpers";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
   ActivityIndicator,
-  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -38,7 +36,7 @@ const createStyles = (
     container: {
       width: "100%",
       paddingHorizontal: 16,
-      paddingVertical: 16,
+      paddingVertical: 8,
       backgroundColor: colors.background,
     },
     content: {
@@ -136,7 +134,6 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
   rightAction,
 }) => {
   const router = useRouter();
-  const topInsetPadding = useTopInsetPadding();
   const colors = useThemeStore((s) => s.colors);
   const { openModal } = useSettingsModalStore();
   const styles = createStyles(colors);
@@ -150,14 +147,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
   };
 
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          paddingTop: Platform.OS === "android" ? topInsetPadding + 16 : 8,
-        },
-      ]}
-    >
+    <View style={[styles.container]}>
       <View style={styles.content}>
         {/* Left side - Back button */}
         {showBackButton && (
@@ -195,7 +185,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
               <Ionicons name="menu-sharp" size={24} color={colors.text} />
             </TouchableOpacity>
           )}
-          
+
           {showNotificationBell && (
             <TouchableOpacity
               style={styles.notificationBell}
@@ -212,7 +202,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
               )}
             </TouchableOpacity>
           )}
-          
+
           {rightAction && !showNotificationBell && !showSettingsButton && (
             <TouchableOpacity
               style={[

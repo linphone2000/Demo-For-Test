@@ -15,7 +15,7 @@ export default function PropertyScreen() {
       <SafeAreaView style={commonStyles.safeArea}>
         <CustomHeader isMainTab title={t("common.property")} showSettingsButton />
         <ScrollView style={commonStyles.contentContainer}>
-          <View style={{ padding: 20 }}>
+          <View>
             <Text style={{ color: colors.text, fontSize: 18 }}>
               {t("property.title")}
             </Text>
