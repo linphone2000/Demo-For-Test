@@ -64,7 +64,7 @@ export const createCommonStyles = (colors: any) =>
       backgroundColor: colors.background,
     },
     safeArea: {
-      flex: 1,
+      paddingBottom: 20,
       backgroundColor: colors.background,
     },
     contentContainer: {

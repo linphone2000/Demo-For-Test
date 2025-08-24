@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useThemeStore } from "@/stores/useThemeStore";
 import { useTranslation } from "react-i18next";
 import { useInsetsTabBarStyle } from "@/utils/useInsetsHelpers";
+import * as Haptics from "expo-haptics";
 
 export default function TabLayout() {
   const { colors } = useThemeStore();
@@ -18,7 +19,13 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: colors.card,
           borderTopColor: colors.border,
-          ...insetTabBarStyle
+          ...insetTabBarStyle,
+        },
+      }}
+      screenListeners={{
+        tabPress: () => {
+          // Trigger haptic feedback on tab press
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         },
       }}
     >
@@ -59,6 +66,17 @@ export default function TabLayout() {
           title: t("common.profile"),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person" color={color} size={size} />
+          ),
+        }}
+      />
+      
+      {/* Manage Async Data */}
+      <Tabs.Screen
+        name="manage"
+        options={{
+          title: t("common.manage"),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings" color={color} size={size} />
           ),
         }}
       />

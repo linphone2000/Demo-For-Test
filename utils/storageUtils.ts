@@ -80,14 +80,43 @@ export const removeStorageItem = async (key: string): Promise<void> => {
   }
 };
 
-/**
- * Log all AsyncStorage data to console
- */
-export const logStorageData = async (): Promise<void> => {
-  const data = await getAllStorageData();
-  console.log("=== AsyncStorage Data ===");
-  console.log(JSON.stringify(data, null, 2));
-  console.log("========================");
+export const logStorageData = async () => {
+  try {
+    const keys = await AsyncStorage.getAllKeys();
+    const data = await AsyncStorage.multiGet(keys);
+    console.log("Storage data:", data);
+  } catch (error) {
+    console.error("Error reading storage:", error);
+  }
+};
+
+// Number formatting utilities
+export const formatNumber = (num: number): string => {
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1).replace(/\.0$/, '') + "M";
+  }
+  return new Intl.NumberFormat('en-US').format(num);
+};
+
+// Currency formatting utilities
+export const formatMMK = (amount: number): string => {
+  const formatted = formatNumber(amount);
+  return formatted.includes('M') ? formatted + ' MMK' : new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'MMK',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};
+
+export const formatUSD = (amountMMK: number): string => {
+  const usdAmount = amountMMK / 4400; // 1 USD = 4400 MMK
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(usdAmount);
 };
 
 /**

@@ -14,7 +14,13 @@
     "cancel": "Cancel",
     "loading": "Loading...",
     "error": "Error",
-    "success": "Success"
+    "success": "Success",
+    "retry": "Retry",
+    "manage": "Manage",
+    "saving": "Saving...",
+    "ok": "OK",
+    "seeMore": "See More",
+    "seeLess": "See Less"
   },
   "auth": {
     "signIn": "Sign In",
@@ -36,20 +42,145 @@
     "signUpSubtitle": "Create your account"
   },
   "home": {
-    "title": "Home Screen - Public Access",
+    "title": "Dashboard",
     "authStatus": "Authentication Status",
     "signedIn": "Signed In",
-    "guest": "Guest"
+    "guest": "Guest",
+    "portfolioHeader": {
+      "totalValue": "Total Portfolio Value",
+      "marketValue": "Total Market Value",
+      "cash": "Available Cash",
+      "netPnl": "Net P&L",
+      "simulateUp": "Simulate +0.5%",
+      "simulateDown": "Simulate -0.5%"
+    },
+    "holdings": {
+      "title": "Your Holdings",
+      "share": "Share",
+      "value": "Value",
+      "pnl": "P&L",
+      "empty": "No holdings yet",
+      "emptySubtitle": "Start investing to see your portfolio here"
+    },
+    "snapshot": {
+      "title": "Company Snapshot",
+      "companyValue": "Company Value",
+      "companyShares": "Company Shares",
+      "weightedShare": "Your Weighted Share",
+      "propertyCount": "Properties"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "buy": "Buy",
+      "sell": "Sell",
+      "injection": "Injection",
+      "empty": "No recent activity",
+      "emptySubtitle": "Your trading activity will appear here"
+    },
+    "trade": {
+      "buy": "Buy (Mock)",
+      "sell": "Sell (Mock)",
+      "amount": "Amount (MMK)",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "insufficientCash": "Insufficient cash",
+      "insufficientShares": "Insufficient shares",
+      "success": "Transaction successful",
+      "error": "Transaction failed"
+    },
+    "guestMode": {
+      "title": "Demo Mode",
+      "subtitle": "Explore the app with sample data. Sign in to start real investing!",
+      "signIn": "Sign In to Invest",
+      "startInvesting": "Start Investing"
+    },
+    "currency": {
+      "mmk": "MMK",
+      "usd": "USD"
+    },
+    "charts": {
+      "performance": "7-Day Performance",
+      "topProperties": "Top Properties by Value",
+      "noDistribution": "No Property Distribution",
+      "noDistributionSubtitle": "Your property investments will appear here",
+      "weekChange": "Week Change",
+      "weekValue": "Week Value",
+      "performanceNote": "Performance data is simulated for demonstration",
+      "propertyDetails": "Property Details",
+      "share": "Share"
+    }
   },
   "property": {
     "title": "Property Screen - Public Access",
-    "addContent": "Add your property content here"
+    "addContent": "Add your property content here",
+    "adminTitle": "Property Management (Admin)",
+    "cisProperties": "CIS Properties",
+    "adminDescription": "Manage the CIS property portfolio. Add, edit, or remove properties.",
+    "investmentOpportunities": "Investment opportunities in our property portfolio",
+    "location": "Location",
+    "yearBuilt": "Year Built",
+    "totalValue": "Total Value",
+    "sharePrice": "Share Price",
+    "cisOwnership": "CIS Ownership",
+    "yourShares": "Your Shares",
+    "shares": "shares",
+    "buyShares": "Buy Shares",
+    "buyMoreShares": "Buy More Shares",
+    "segment": "Segment",
+    "addProperty": "Add Property",
+    "addPropertyDesc": "Add a new property to the CIS portfolio.",
+    "add": "Add",
+    "editProperty": "Edit Property",
+    "editPropertyDesc": "Edit details for",
+    "edit": "Edit",
+    "deleteProperty": "Delete Property",
+    "deletePropertyDesc": "Are you sure you want to delete",
+    "delete": "Delete",
+    "staticProperty": "Static Property",
+    "staticPropertyDesc": "This is a static property from the base portfolio and cannot be modified.",
+    "deleteSuccess": "Property deleted successfully",
+    "deleteError": "Failed to delete property",
+    "createSuccess": "Property created successfully",
+    "updateSuccess": "Property updated successfully",
+    "saveError": "Failed to save property",
+    "basicInfo": "Basic Information",
+    "financialInfo": "Financial Information",
+    "propertyDetails": "Property Details",
+    "name": "Property Name",
+    "description": "Description",
+    "currentValueMMK": "Current Value (MMK)",
+    "sharePriceMMK": "Share Price (MMK)",
+    "totalShares": "Total Shares",
+    "availableShares": "Available Shares",
+    "cisOwnershipPct": "CIS Ownership (%)",
+    "totalUnits": "Total Units",
+    "occupancyRate": "Occupancy Rate (%)",
+    "validation": {
+      "nameRequired": "Property name is required",
+      "valueRequired": "Property value must be greater than 0",
+      "sharesRequired": "Total shares must be greater than 0"
+    },
+    "authRequired": "Authentication Required",
+    "authRequiredSubtitle": "You must be signed in to access property management features."
   },
   "profile": {
     "userInfo": "User Information",
     "settings": "Settings",
     "themeToggle": "Theme: {{mode}}",
-    "themeToggleSubtitle": "Tap to toggle"
+    "themeToggleSubtitle": "Tap to toggle",
+    "memberSince": "Member for {{days}} days",
+    "portfolioSummary": "Portfolio Summary",
+    "totalValue": "Total Value",
+    "holdings": "Holdings",
+    "netPnl": "Net P&L",
+    "viewDashboard": "View Dashboard",
+    "appStats": "App Statistics",
+    "totalUsers": "Total Users",
+    "totalProperties": "Properties",
+    "quickActions": "Quick Actions",
+    "manageData": "Manage Data",
+    "manageDataDesc": "View and manage app data",
+    "signOutConfirm": "Are you sure you want to sign out?"
   },
   "settings": {
     "title": "Settings",

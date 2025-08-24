@@ -1,11 +1,6 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
-
-interface User {
-  id: string;
-  email: string;
-  name: string;
-}
+import { databaseService } from "@/services/mock/databaseService";
+import { User } from "@/types/models";
 
 interface AuthState {
   user: User | null;
@@ -19,8 +14,6 @@ interface AuthState {
   restoreAuth: () => Promise<void>;
 }
 
-const AUTH_STORAGE_KEY = "app_auth_user";
-
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   isAuthenticated: false,
@@ -33,24 +26,20 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // For demo purposes, accept any email/password combination
-      // In a real app, you'd validate against your backend
-      const user: User = {
-        id: Date.now().toString(),
-        email,
-        name: email.split('@')[0], // Use email prefix as name for demo
-      };
-
-      // Save to AsyncStorage
-      await AsyncStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user));
+      // Authenticate using database service
+      const user = await databaseService.authenticateUser(email, password);
       
-      set({
-        user,
-        isAuthenticated: true,
-        isLoading: false,
-      });
-      
-      return true;
+      if (user) {
+        set({
+          user,
+          isAuthenticated: true,
+          isLoading: false,
+        });
+        return true;
+      } else {
+        set({ isLoading: false });
+        return false;
+      }
     } catch (error) {
       console.error("Sign in error:", error);
       set({ isLoading: false });
@@ -62,27 +51,26 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     try {
       set({ isLoading: true });
       
+      // Initialize database from storage
+      await databaseService.initializeFromStorage();
+      
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // For demo purposes, create user directly
-      // In a real app, you'd send this to your backend
-      const user: User = {
-        id: Date.now().toString(),
-        email,
-        name,
-      };
-
-      // Save to AsyncStorage
-      await AsyncStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user));
+      // Create new user in the database
+      const user = await databaseService.createUser(email, password, name);
       
-      set({
-        user,
-        isAuthenticated: true,
-        isLoading: false,
-      });
-      
-      return true;
+      if (user) {
+        set({
+          user,
+          isAuthenticated: true,
+          isLoading: false,
+        });
+        return true;
+      } else {
+        set({ isLoading: false });
+        return false;
+      }
     } catch (error) {
       console.error("Sign up error:", error);
       set({ isLoading: false });
@@ -92,7 +80,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   signOut: async () => {
     try {
-      await AsyncStorage.removeItem(AUTH_STORAGE_KEY);
+      await databaseService.signOut();
       set({
         user: null,
         isAuthenticated: false,
@@ -106,10 +94,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   restoreAuth: async () => {
     try {
       set({ isLoading: true });
-      const userData = await AsyncStorage.getItem(AUTH_STORAGE_KEY);
+      const user = await databaseService.getCurrentUser();
       
-      if (userData) {
-        const user: User = JSON.parse(userData);
+      if (user) {
         set({
           user,
           isAuthenticated: true,

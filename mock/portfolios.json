@@ -1,0 +1,74 @@
+{
+  "portfolios": {
+    "user-1": {
+      "userId": "user-1",
+      "cashMMK": 50000000,
+      "totalValueMMK": 919100000,
+      "netPnlAbs": 16500000,
+      "netPnlPct": 1.8,
+      "holdings": [
+        {
+          "propertyId": "prop-1",
+          "userSharePct": 15.5,
+          "userValueMMK": 387500000,
+          "pnlAbs": 12500000,
+          "pnlPct": 3.3,
+          "purchaseDate": "2024-01-15T00:00:00.000Z",
+          "purchaseValueMMK": 375000000,
+          "sharesOwned": 155000,
+          "currentSharePriceMMK": 2500,
+          "averagePurchasePriceMMK": 2419
+        },
+        {
+          "propertyId": "prop-2",
+          "userSharePct": 8.2,
+          "userValueMMK": 147600000,
+          "pnlAbs": -2400000,
+          "pnlPct": -1.6,
+          "purchaseDate": "2024-02-01T00:00:00.000Z",
+          "purchaseValueMMK": 150000000,
+          "sharesOwned": 65600,
+          "currentSharePriceMMK": 2250,
+          "averagePurchasePriceMMK": 2287
+        },
+        {
+          "propertyId": "prop-3",
+          "userSharePct": 12.0,
+          "userValueMMK": 384000000,
+          "pnlAbs": 6400000,
+          "pnlPct": 1.7,
+          "purchaseDate": "2024-02-15T00:00:00.000Z",
+          "purchaseValueMMK": 377600000,
+          "sharesOwned": 144000,
+          "currentSharePriceMMK": 2667,
+          "averagePurchasePriceMMK": 2622
+        }
+      ],
+      "snapshot": {
+        "companyValueMMK": 9000000000,
+        "companyShares": 1000000,
+        "weightedSharePct": 10.2,
+        "propertiesCount": 4
+      },
+      "activities": [
+        {
+          "id": "act-1",
+          "type": "buy",
+          "propertyId": "prop-1",
+          "amountMMK": 375000000,
+          "ts": 1705276800000,
+          "description": "Initial investment in Golden Valley Residences"
+        },
+        {
+          "id": "act-2",
+          "type": "sell",
+          "propertyId": "prop-2",
+          "amountMMK": 50000000,
+          "ts": 1706832000000,
+          "description": "Partial sale of Downtown Office Tower"
+        }
+      ],
+      "lastUpdated": "2024-01-01T00:00:00.000Z"
+    }
+  }
+}

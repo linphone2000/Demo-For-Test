@@ -24,9 +24,10 @@ A modern React Native Expo boilerplate with TypeScript, internationalization, dy
 
 ### 📱 Modern Navigation
 - **Expo Router**: File-based routing with TypeScript support
-- **Tab Navigation**: Clean bottom tab navigation
+- **Tab Navigation**: Clean bottom tab navigation with haptic feedback
 - **Modal Screens**: Settings modal and authentication screens
 - **Type-Safe Navigation**: Full TypeScript support for routes
+- **Haptic Feedback**: Tactile feedback on tab interactions for enhanced UX
 
 ### 🏗️ State Management
 - **Zustand Stores**: Lightweight and performant state management
@@ -39,6 +40,12 @@ A modern React Native Expo boilerplate with TypeScript, internationalization, dy
 - **ESLint**: Code quality and consistency
 - **Prettier**: Code formatting
 - **Hot Reload**: Fast development with Expo
+
+### 📳 Haptic Feedback
+- **Tab Interactions**: Medium impact haptic feedback on tab button presses
+- **Enhanced UX**: Provides tactile confirmation for navigation actions
+- **Cross-Platform**: Works on both iOS and Android devices with haptic support
+- **Graceful Fallback**: No errors on devices without haptic capabilities
 
 ## 🚀 Quick Start
 
@@ -246,12 +253,19 @@ eas build --platform android
 - **Error Handling**: Graceful fallbacks for storage failures
 - **No External Dependencies**: Works completely offline
 
+### Haptic Feedback Implementation
+- **Expo Haptics**: Uses `expo-haptics` for cross-platform haptic feedback
+- **Tab Navigation**: Medium impact feedback on tab button presses via `screenListeners`
+- **Error Handling**: Graceful fallback for devices without haptic support
+- **Performance**: Lightweight implementation with minimal overhead
+
 ## 🌟 Benefits
 
 ✅ **Modern Stack**: Latest React Native and Expo features  
 ✅ **Type Safety**: Full TypeScript support throughout  
 ✅ **Internationalization**: Ready for global markets  
 ✅ **Theme Support**: Professional light/dark mode implementation  
+✅ **Haptic Feedback**: Enhanced UX with tactile feedback  
 ✅ **Offline-First**: Works without internet connection  
 ✅ **Fast Development**: Hot reload and modern tooling  
 ✅ **Scalable**: Easy to extend and customize  
