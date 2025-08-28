@@ -4,7 +4,7 @@ import { BarChart } from "react-native-chart-kit";
 import { useThemeStore } from "@/stores/useThemeStore";
 import { useTranslation } from "react-i18next";
 import { Holding } from "@/types/models";
-import { formatNumber } from "@/utils/storageUtils";
+import { formatMMK } from "@/utils/storageUtils";
 
 interface PropertyDistributionChartProps {
   holdings: Holding[];
@@ -63,7 +63,7 @@ export default function PropertyDistributionChart({
     }),
     datasets: [
       {
-        data: topHoldings.map(holding => holding.userValueMMK / 1000000), // Convert to millions
+        data: topHoldings.map(holding => Number((holding.userValueMMK / 1000000).toFixed(1))), // Convert to millions with 1 decimal place
       },
     ],
   };
@@ -82,6 +82,10 @@ export default function PropertyDistributionChart({
       strokeDasharray: "", // Solid lines
       stroke: colors.border,
       strokeWidth: 1,
+    },
+    formatYLabel: (value: string) => {
+      const numValue = parseFloat(value);
+      return numValue.toFixed(1);
     },
   };
 
@@ -178,7 +182,7 @@ export default function PropertyDistributionChart({
                 fontWeight: "600",
                 color: colors.text,
               }}>
-                {formatNumber(holding.userValueMMK)} MMK
+                {formatMMK(holding.userValueMMK)}
               </Text>
               <Text style={{
                 fontSize: 12,
